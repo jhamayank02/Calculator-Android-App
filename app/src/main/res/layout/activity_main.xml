@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:flow_horizontalAlign="start"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/calculate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:textColor="#444444"
+        android:textSize="30sp"
+        app:flow_horizontalAlign="end"
+        app:layout_constraintBottom_toTopOf="@+id/resultDisplay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/resultDisplay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:textColor="#444444"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/more"
+                android:layout_width="14dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:onClick="expand"
+                android:src="@drawable/more" />
+
+            <TextView
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="C"
+                android:text="C"
+                android:textColor="#DA0037"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="X"
+                android:text="X"
+                android:textColor="#DA0037"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/divide"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="/"
+                android:text="/"
+                android:textColor="#DA0037"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expandedLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/sqrt"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="sqrt"
+                android:text="sqrt"
+                android:textColor="#444444"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/ln"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="ln"
+                android:text="ln"
+                android:textColor="#444444"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/exponent4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="^"
+                android:text="x^y"
+                android:textColor="#444444"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/leftParenthesis2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="("
+                android:text="("
+                android:textColor="#444444"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/rightParenthesis3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag=")"
+                android:text=")"
+                android:textColor="#444444"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/seven"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:onClick="tapped"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="7"
+                android:tag="7"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/eight"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:onClick="tapped"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="8"
+                android:tag="8"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/nine"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:onClick="tapped"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="9"
+                android:tag="9"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/multiply"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:onClick="tapped"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="*"
+                android:tag="*"
+                android:textColor="#DA0037"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/four"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="4"
+                android:onClick="tapped"
+                android:tag="4"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/five"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="5"
+                android:tag="5"
+                android:onClick="tapped"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/six"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="6"
+                android:tag="6"
+                android:onClick="tapped"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/subtract"
+                android:layout_width="18dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="-"
+                android:onClick="tapped"
+                android:tag="-"
+                android:textColor="#DA0037"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="1"
+                android:onClick="tapped"
+                android:tag="1"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/two"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="2"
+                android:onClick="tapped"
+                android:tag="2"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/three"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="3"
+                android:onClick="tapped"
+                android:tag="3"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="+"
+                android:onClick="tapped"
+                android:tag="+"
+                android:textColor="#DA0037"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sqrt"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="0"
+                android:tag="0"
+                android:onClick="tapped"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/sin"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="."
+                android:tag="."
+                android:onClick="tapped"
+                android:textColor="#444444"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/cos"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="tapped"
+                android:tag="="
+                android:text="="
+                android:textColor="#DA0037"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="20dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
